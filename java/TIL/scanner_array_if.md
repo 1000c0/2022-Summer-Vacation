@@ -67,7 +67,7 @@ else if(i == 0){
   System.out.print("i는 0보다 작다");
 }
 ```
-## switch/case
+## switch/case 문
 ```java
 switch (input){
   case "apple":

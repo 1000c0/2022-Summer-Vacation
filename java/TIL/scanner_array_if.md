@@ -1,4 +1,4 @@
-## Scanner
+# Scanner
 ```java
  import java.util.scanner              // import
 
@@ -38,11 +38,47 @@
   ```
 
 #
-## Array
+# Array
 ```java
 int [] intArray;        //배열 선언 방법1
 int intarray [];        //배열 선언 방법2
 
 int intArray[] = new int[5];  // 공간 할당
-intArray[0] = 5;
+intArray[0] = 5;              // 원소 추가
+
+int intArray[] = {1, 2, 3, 4, 0};              //초기화된 배열 선언
+double doubleArray[] = {0.01, 0.02, 0.03};
+```
+- list와의 차이점
+  - Array : 공간 크기 고정
+  - list : 동적인 크기
+
+#
+# 조건문
+
+## if문 
+```java
+if(int i > 0){
+  System.out.print("i는 0보다 크다.");
+}
+else if(i == 0){
+  System.out.print("i는 0이다");
+}else{
+  System.out.print("i는 0보다 작다");
+}
+```
+## switch/case
+```java
+switch (input){
+  case "apple":
+      System.out.print("사과");
+      break;
+
+  case ("lemon"):
+      System.out.print("레몬");
+      break;
+
+  default:
+      System.out.print("다른 과일을 입력해주세요")
+}
 ```

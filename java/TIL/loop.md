@@ -17,6 +17,7 @@ for(int i = 0; i < 3; i++){
 }
 ```
 
+
 # break와 continue
 - break : break를 만나면 while문을 빠져나간다
 - continue : continue를 만나면 조건식으로 돌아간다

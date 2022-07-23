@@ -5,22 +5,19 @@ public class knapsack_2 {
 	public static void main(String[] args) {
 		String item[] = { "휴대폰", "라면", "쌀", "빵", "우의", "커피", "생수", "오이", "침낭", "라디오", "손전등" };
 		int value_array[] = { 16, 35, 36, 20, 21, 10, 12, 16, 46, 12, 18 };
-		int value = 0;
-		int high_value = 0;
+		int high_value = 0; // 최적 만족도를 저장할 변수
 		int weight_array[] = { 1, 11, 12, 5, 6, 3, 7, 4, 16, 2, 2 };
-		int weight = 0;
-		long mid_num = 0;
-		int good_weight = 0;
-		ArrayList high_value_list = new ArrayList();
-		ArrayList high_value_list_2 = new ArrayList();
-		String[] element;
-		String[] BinaryArray = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+		int good_weight = 0; // 최적 무게를 저장할 변수
+
+		String[] element; // 이진수를 쪼갠 것을 받아 넘길 곳
+		String[] BinaryArray = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" }; // 이진수들을 계속 바꿔 담을 곳
+		String[] high_array = { "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" }; // 최적해를 따로 저장할 곳
 
 		for (int i = 0; i <= 2047; ++i) {
-			value = 0;
-			weight = 0;
-			String binaryString = Long.toBinaryString(i);
-			for (int j = 0; j < binaryString.length(); j++) {
+			int value = 0; // 실행마다 만족도 초기화
+			int weight = 0; // 실행마다 무게 초기화
+			String binaryString = Long.toBinaryString(i); // Long으로 받은 이진수를 문자열로 바꿈
+			for (int j = 0; j < binaryString.length(); j++) { // 각 자리별 대조를 위해, 문자열 이진수를 하나하나 쪼갬
 				element = binaryString.split("");
 				BinaryArray[j] = element[j];
 			}
@@ -68,29 +65,31 @@ public class knapsack_2 {
 				value += 28;
 				weight += 2;
 			}
-			if (weight > 40) {
+			if (weight > 40) { // 무게가 40kg 초과하면 다시 처음으로
 				continue;
 			}
-			if (value > high_value) {
-				high_value_list.clear();
-				high_value_list_2.clear();
-				high_value = value;
-				high_value_list.add(binaryString);
-				good_weight = weight;
-				continue;
 
-			} else if (value == high_value) {
-				high_value_list_2.add(binaryString);
+			if (value > high_value) { // 무게 조건에 맞는 더 높은 만족도가 나올시 기존 최적 무게와 만족도, 담을 물품들의 목록을 갱신하고, 따로 저장함.
+				high_value = value;
 				good_weight = weight;
+				for (int m = 0; m < binaryString.length(); m++) {
+					high_array[m] = BinaryArray[m];
+				}
 				continue;
 			}
 		}
-		for (int k = 0; k < BinaryArray.length; k++) {
-			if (BinaryArray[k].equals("1") && k != 10) {
+
+		for (int k = 0; k < 11; k++) {
+			if (high_array[k].equals("1") & k != 10) { // 각 자리별 수에 따라, 0이면 넣지 않고 1이면 넣음
 				System.out.print(item[k] + ", ");
 			}
-			if (k == 10) {
+			if (k == 10 & high_array[k].equals("1")) {
 				System.out.println(item[k] + " 을(를) 넣으면 됩니다.");
+				System.out.println("무게 : " + good_weight + "kg");
+				System.out.println("만족도 : " + high_value);
+
+			} else if (k == 10 & high_array[k].equals("0")) {
+				System.out.println(" 을(를) 넣으면 됩니다.");
 				System.out.println("무게 : " + good_weight + "kg");
 				System.out.println("만족도 : " + high_value);
 			}

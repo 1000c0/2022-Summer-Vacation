@@ -64,7 +64,7 @@ public class pokemon_game {
 		int monsterball = 10;
 		int potion = 10;
 		int my_hp = 0;
-		int x_hp = 0;
+		int x_hp = 0;    
 		int count = 0;
 
 		String mon = "";
@@ -113,7 +113,7 @@ public class pokemon_game {
 		System.out.println(" .\n .\n ");
 		System.out.println(name + ": 여라가지 길이 있군, 어디로 갈까?");
 
-		outerLoop2: while (true) {
+		outerLoop_a: while (true) {
 			System.out.println("[초원 / 화산 / 설원 / 바다/ BOSS]");
 			System.out.print("가고 싶은 지역을 입력해주세요: ");
 			String where = sc.next();
@@ -174,6 +174,10 @@ public class pokemon_game {
 						System.out.println("2) 회복약: " + potion + "개");
 						String use = sc.next();
 						if (use.equals("1") | use.equals("몬스터볼")) {
+							if(monsterball < 0) {
+								System.out.println("몬스터볼을 모두 사용하였습니다.");
+								break;
+							}
 							if (x_hp <= 50) {
 								System.out.println("가랏!! 몬스터볼");
 								System.out.println(grass[i] + "를 잡았습니다.\n");
@@ -200,6 +204,9 @@ public class pokemon_game {
 							}
 							if (my_hp > inven_hp.get(0)) {
 								my_hp = inven_hp.get(0);
+							}
+							if(potion < 0) {
+								System.out.println("회복약을 모두 사용하였습니다.");
 							}
 							continue;
 						}
@@ -285,6 +292,10 @@ public class pokemon_game {
 						System.out.println("2) 회복약: " + potion + "개");
 						String use = sc.next();
 						if (use.equals("1") | use.equals("몬스터볼")) {
+							if(monsterball < 0) {
+								System.out.println("몬스터볼을 모두 사용하였습니다.");
+								break;
+							}
 							if (x_hp <= 50) {
 								System.out.println("가랏!! 몬스터볼");
 								System.out.println(fire[i] + "를 잡았습니다.\n");
@@ -311,6 +322,9 @@ public class pokemon_game {
 							}
 							if (my_hp > inven_hp.get(0)) {
 								my_hp = inven_hp.get(0);
+							}
+							if(potion < 0) {
+								System.out.println("회복약을 모두 사용하였습니다.");
 							}
 							continue;
 						}
@@ -396,6 +410,10 @@ public class pokemon_game {
 						System.out.println("2) 회복약: " + potion + "개");
 						String use = sc.next();
 						if (use.equals("1") | use.equals("몬스터볼")) {
+							if(monsterball < 0) {
+								System.out.println("몬스터볼을 모두 사용하였습니다.");
+								break;
+							}
 							if (x_hp <= 50) {
 								System.out.println("가랏!! 몬스터볼");
 								System.out.println(snow[i] + "를 잡았습니다.\n");
@@ -422,6 +440,9 @@ public class pokemon_game {
 							}
 							if (my_hp > inven_hp.get(0)) {
 								my_hp = inven_hp.get(0);
+							}
+							if(potion < 0) {
+								System.out.println("회복약을 모두 사용하였습니다.");
 							}
 							continue;
 						}
@@ -507,6 +528,10 @@ public class pokemon_game {
 						System.out.println("2) 회복약: " + potion + "개");
 						String use = sc.next();
 						if (use.equals("1") | use.equals("몬스터볼")) {
+							if(monsterball < 0) {
+								System.out.println("몬스터볼을 모두 사용하였습니다.");
+								break;
+							}
 							if (x_hp <= 50) {
 								System.out.println("가랏!! 몬스터볼");
 								System.out.println(water[i] + "를 잡았습니다.\n");
@@ -533,6 +558,9 @@ public class pokemon_game {
 							}
 							if (my_hp > inven_hp.get(0)) {
 								my_hp = inven_hp.get(0);
+							}
+							if(potion < 0) {
+								System.out.println("회복약을 모두 사용하였습니다.");
 							}
 							continue;
 						}
@@ -562,16 +590,35 @@ public class pokemon_game {
 				}
 			}
 
-			if (where.equals("BOSS")) {
+			if (where.toUpperCase().equals("BOSS")) {
 				if (count < 5) {
 					System.out.println("BOSS에 도전할 자격은 포켓몬 5마리 이상부터 입니다.");
 					System.out.println("현재 포유 포켓몬: " + inven_mon);
 				} else if (count >= 5) {
+					System.out.println("---------------------------------");
+					System.out.println("        ⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⠀ ⠀⠀");
+					System.out.println("        ⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠀⠀");
+					System.out.println("        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   ");
+					System.out.println("        ⢹⣿⣿⠟⠛⠛⠋⠛⠋⠛⠛⠟⠻⠿⣿⣿⣿⡿   ");
+					System.out.println("        ⢸⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⠇   ");
+					System.out.println("       ⢀⡘⣿⠇⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠀   ");
+					System.out.println("       ⢸⣿⡏⣀⣉⡉⢛⢷⡄⠀⠀⢠⠶⠒⠒⠂⠈⡟⣄   ");
+					System.out.println("       ⠘⢿⡟⡅⠉⠉⠛⠛⡯⠠⠔⠀⠶⠶⠖⠦⣠⢿⠏   ");
+					System.out.println("        ⠸⣷⠑⠐⠀⠄⢠⠁⠀⠘⠀⠀⠀⠀⠠⠙⠡⠀ ⠀ ");
+					System.out.println("          ⠆⠀⠀⠀⠸⡀⠀⡀⠀⠀⠀⠀⠀⠁⠀⠀   ");
+					System.out.println("          ⠸⡄⠀⠀⢀⡀⠀⠀⠀⠀⠀⢀⠂⠀⠀⠀   ");
+					System.out.println("          ⣠⣿⡄⠀⠉⠅⠀⠈⠀⠀⡀⢉⠀⠀⠀    ");
+					System.out.println("       ⢀⠴⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⡸⡆⢄⠀⠀ ⠀  ");
+					System.out.println("    ⢀⣀⡴⡿⢿⣿⠹⣿⣿⣷⣶⡶⠂⠀⠀⠔⠀⡇⠀⠁⢁ ⠀ ");
+					System.out.println("⢀⣤⣴⣾⣿⢿⢞⡭⣵⣿⠀⠻⣿⣿⠟⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀  ");
+					System.out.println("⣿⣿⣿⣿⣟⣻⠪⣵⣿⣾⣷⢀⠀⠈⠣⢀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀ ");
+					System.out.println("⣿⣿⣿⣿⡷⢾⣯⢵⠖⠉⠈⡇⠀⠀⣰⠉⠷⣄⠀⠀⠀⣸⠁⠈⠂⢀ ");
+					System.out.println("--------------------------------");
 					System.out.println(boss + "가 나타났다!!");
 					System.out.println("가랏, " + inven_mon.get(0) + "!!!\n");
 					my_hp = inven_hp.get(0);
 
-					outerLoop: while (true) {
+					while (true) {
 						System.out.println(boss + ": " + boss_hp);
 						System.out.println(inven_mon.get(0) + ": " + my_hp);
 						System.out.println(" 어떻게 할까? \n 1) 싸운다. \n 2) 도망간다. \n 3) 도구 \n 4) 포켓몬교체");
@@ -591,34 +638,35 @@ public class pokemon_game {
 									boss_hp -= skill_p_dic[k];
 									my_hp -= boss_skillp[s];
 									if (boss_hp <= 0) {
-										System.out.println("이제 발 뻗고 잘구 있겠구만 ㅎㅎ 고맙네!!!");
+										System.out.println("이제 발 뻗고 잘 수 있겠구만 ㅎㅎ 고맙네!!!");
 										Thread.sleep(1000);
-										System.out.println("---------------------------------");
-										System.out.println("        ⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⠀ ⠀⠀");
-										System.out.println("        ⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠀⠀");
-										System.out.println("        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   ");
-										System.out.println("        ⢹⣿⣿⠟⠛⠛⠋⠛⠋⠛⠛⠟⠻⠿⣿⣿⣿⡿   ");
-										System.out.println("        ⢸⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⠇   ");
-										System.out.println("       ⢀⡘⣿⠇⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⠀   ");
-										System.out.println("       ⢸⣿⡏⣀⣉⡉⢛⢷⡄⠀⠀⢠⠶⠒⠒⠂⠈⡟⣄   ");
-										System.out.println("       ⠘⢿⡟⡅⠉⠉⠛⠛⡯⠠⠔⠀⠶⠶⠖⠦⣠⢿⠏   ");
-										System.out.println("        ⠸⣷⠑⠐⠀⠄⢠⠁⠀⠘⠀⠀⠀⠀⠠⠙⠡⠀ ⠀ ");
-										System.out.println("          ⠆⠀⠀⠀⠸⡀⠀⡀⠀⠀⠀⠀⠀⠁⠀⠀   ");
-										System.out.println("          ⠸⡄⠀⠀⢀⡀⠀⠀⠀⠀⠀⢀⠂⠀⠀⠀   ");
-										System.out.println("          ⣠⣿⡄⠀⠉⠅⠀⠈⠀⠀⡀⢉⠀⠀⠀    ");
-										System.out.println("       ⢀⠴⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⡸⡆⢄⠀⠀ ⠀  ");
-										System.out.println("    ⢀⣀⡴⡿⢿⣿⠹⣿⣿⣷⣶⡶⠂⠀⠀⠔⠀⡇⠀⠁⢁ ⠀ ");
-										System.out.println("⢀⣤⣴⣾⣿⢿⢞⡭⣵⣿⠀⠻⣿⣿⠟⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀  ");
-										System.out.println("⣿⣿⣿⣿⣟⣻⠪⣵⣿⣾⣷⢀⠀⠈⠣⢀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀ ");
-										System.out.println("⣿⣿⣿⣿⡷⢾⣯⢵⠖⠉⠈⡇⠀⠀⣰⠉⠷⣄⠀⠀⠀⣸⠁⠈⠂⢀ ");
-										System.out.println("--------------------------------");
+										System.out.println("");
+										System.out.println("                The End");
+										Thread.sleep(1000);
+										System.out.println("---------------------------------------");
+										System.out.println("⠸⣶⣶⠠⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⡀");
+										System.out.println("⠀⠙⣿⡄⠀⠉⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠠⠒⠉⢸⣿⡟⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠈⢣⠀⠀⠀⠈⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠀⠁⠀⠀⠀⡿⠋⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠑⠄⡀⠀⠀⠘⢄⠠⠀⠒⠒⠒⠒⠂⠠⠀⠀⠀⠀⠀⠀⡠⠊⠀⣀⠠⠄⠒⠂⠙");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠈⠂⢄⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠠⢒⡁⠄⠂⠉⠀⠀⠀⠀⠀⡆");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠁⠀⠀⠀⠀⠀⠀⠀⠀⢀⠁");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⡇⢠⣶⠐⡄⠀⠀⠀⠀⠀⢠⠐⣶⡀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⢠⢀⠈⠻⠟⠁⠀⠀⠀⠀⠀⠘⠻⠛⠀⠀⡄⠀⢀⡀⠤⠄⠒⠀⠉⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⡆⠀⠀⠠⠄⠒⠠⠤⠀⠀⢠⣾⣿⡇⠀⠈⢄⠀⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⠈⠻⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⢿⡿⠣⡀⠀⠀⠑⢄⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⢠⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⢀⠤⠊⠧⠐⠈⢀⠠⠐⠈⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠀⢀⠆⠀⠀⠀⠀⠀⠒⠶⠒⠀⠁⠀⠀⠀⠘⣠⣾⡄⠀⠀⠀⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠠⠂⠀⠀⠀⠀⠀⠀⡆⠀⠀⠆⠀⠀⠀⠀⠀⠘⡉⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⡀⡀⠃⠀⡄⠀⠀⠀⠀⠀⠁⠀⢸⠀⠀⠀⠀⠀⡄⠀⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠘⣢⣄⡑⠀⠰⡀⠀⠀⠀⠀⢸⣤⡌⠀⠀⠀⠀⠰⠀⢀⢔⣨⠒⠂⠀⠀⠀⠀⠀⠀"); 
+										System.out.println("⠀⠀⠀⠀⠈⠻⣿⣦⣠⣵⡀⠀⠀⠀⢸⣿⣧⠀⠀⠀⣰⣥⣀⣴⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀");
+										System.out.println("⠀⠀⠀⠀⠀⠀⠈⠻⠿⠛⠛⠦⠠⠤⠋⠉⠉⠄⢀⡔⠿⢿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+										System.out.println("---------------------------------------");
 										Thread.sleep(1000);
 										System.out.println("Producer   :   이유찬, 천시영");
-										Thread.sleep(1000);
+										Thread.sleep(1000); 
 										System.out.println("Assist     :   Google");
-										Thread.sleep(1000);
-										System.out.println("        The End         ");
-										break outerLoop2;
+										break outerLoop_a;
 									}
 									if (my_hp <= 0) {
 										System.out.println(inven_mon.get(0) + "가 쓰러졌습니다.");
@@ -660,6 +708,9 @@ public class pokemon_game {
 								if (my_hp > inven_hp.get(0)) {
 									my_hp = inven_hp.get(0);
 								}
+								if(potion < 0) {
+									System.out.println("회복약을 모두 사용하였습니다.");
+								}
 								continue;
 							} else if (use.equals("n")) {
 								continue;
@@ -685,6 +736,5 @@ public class pokemon_game {
 				}
 			}
 		}
-
 	}
 }

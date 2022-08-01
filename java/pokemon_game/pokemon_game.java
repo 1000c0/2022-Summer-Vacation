@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class pokemon_game {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		String[] all_mon = { "아르세우스", "레쿠자", "뮤", "칠색조", "나인테일", "그란돈", "레시라무", "히드런", "얼음귀신", "눈설왕", "펄기아", "큐레무",
 				"갸라도스", "루기아", "가이오가", "스이쿤", "파이어", "프리져", "썬더" };
 
@@ -113,8 +113,7 @@ public class pokemon_game {
 		System.out.println(" .\n .\n ");
 		System.out.println(name + ": 여라가지 길이 있군, 어디로 갈까?");
 
-		outerLoop2:
-		while (true) {
+		outerLoop2: while (true) {
 			System.out.println("[초원 / 화산 / 설원 / 바다/ BOSS]");
 			System.out.print("가고 싶은 지역을 입력해주세요: ");
 			String where = sc.next();
@@ -592,9 +591,8 @@ public class pokemon_game {
 									boss_hp -= skill_p_dic[k];
 									my_hp -= boss_skillp[s];
 									if (boss_hp <= 0) {
-										System.out.println(boss + "를 처치했습니다.");
-										System.out.println("choi 박사: "+name+" 덕분에 세계평화가 찾아왔네^^ ");
 										System.out.println("이제 발 뻗고 잘구 있겠구만 ㅎㅎ 고맙네!!!");
+										Thread.sleep(1000);
 										System.out.println("---------------------------------");
 										System.out.println("        ⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣤⣀⠀ ⠀⠀");
 										System.out.println("        ⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠀⠀");
@@ -614,8 +612,12 @@ public class pokemon_game {
 										System.out.println("⣿⣿⣿⣿⣟⣻⠪⣵⣿⣾⣷⢀⠀⠈⠣⢀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀ ");
 										System.out.println("⣿⣿⣿⣿⡷⢾⣯⢵⠖⠉⠈⡇⠀⠀⣰⠉⠷⣄⠀⠀⠀⣸⠁⠈⠂⢀ ");
 										System.out.println("--------------------------------");
-										System.out.println("만든이 : 이유찬, 천시영");
-										System.out.println("도움주신 분 : Google");
+										Thread.sleep(1000);
+										System.out.println("Producer   :   이유찬, 천시영");
+										Thread.sleep(1000);
+										System.out.println("Assist     :   Google");
+										Thread.sleep(1000);
+										System.out.println("        The End         ");
 										break outerLoop2;
 									}
 									if (my_hp <= 0) {

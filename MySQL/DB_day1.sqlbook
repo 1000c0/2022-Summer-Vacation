@@ -74,13 +74,17 @@ ORDER BY TotalItemsOnHand DESC;
 --2.37
 SELECT WarehouseId, SUM(QuantityOnHand) AS TotalItemsOnHandT3
 FROM Inventory
+WHERE QuantityOnHand < 3
 GROUP BY WarehouseID
-HAVING TotalItemsOnHandT3 = 3
 ORDER BY TotalItemsOnHandT3 DESC;
 -- SQLBook: Code
 --2.38
 SELECT WarehouseID, SUM(QuantityOnHand) AS TotalItemsOnHandT3
 FROM Inventory
-WHERE SKU <
-GROUP BY WarhouseID
-HAVING TotalItemsOnHandT3 = 3 AND 
+WHERE QuantityOnHand < 3
+GROUP BY WarehouseID
+HAVING count(*) < 2
+ORDER BY TotalItemsOnHandT3 DESC;
+-- SQLBook: Code
+--2.39
+-- where은 테이블에서 주어진 조건에 맞는 데이터를 필터링하고, having은 그룹화된 데이터 그룹에서 주어진 조건에 맞는 그룹을 필터링한다.

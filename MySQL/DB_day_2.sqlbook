@@ -1,1 +1,49 @@
 -- SQLBook: Code
+--2.45
+SELECT SKU, SKU_Description, WarehouseID
+FROM INVENTORY
+WHERE WarehouseID = SELECT WarehouseID
+                    FROM Warehouse
+                    WHERE Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.46
+SELECT SKU, SKU_Description, WarehouseID
+FROM INVENTORY, WAREHOUSE
+WHERE INVENTORY.WarehouseID = WAREHOUSE.WarehouseID
+AND Warehouse.Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.47
+SELECT SKU, SKU_Description, WarehouseID
+FROM INVENTORY JOIN WAREHOUSE
+ON INVENTORY.WarehouseID = WAREHOUSE.WarehouseID
+WHERE Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.48
+SELECT WarehouseID, AVG(QuantityOnHand)
+FROM INVENTORY
+WHERE WarehouseID = SELECT WarehouseID
+                    FROM Warehouse
+                    WHERE Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.49
+SELECT WarehouseID, AVG(QuantityOnHand)
+FROM INVENTORY, WAREHOUSE
+WHERE INVENTORY.WarehouseID = WAREHOUSE.WarehouseID
+AND Warehouse.Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.50
+SELECT WarehouseID, AVG(QuantityOnHand)
+FROM INVENTORY JOIN WAREHOUSE
+ON INVENTORY.WarehoueID = WAREHOUSE.WarehouseID
+WHERE Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.51
+SELECT WarehouseID, WarehouseCity, WarehouseState, Manager, SKU, SKU_Description, QuantityOnHand
+From INVENTORY JOIN WAREHOUSE
+ON INVENTORY.WarehouseID = WAREHOUSE.WarehouseID
+WHERE Manager = "Lucille Smith";
+-- SQLBook: Code
+--2.52
+SELECT WarehouseID, SUM(QuantityOnOrder) AS TotalItemsOnOrder, SUM(QuantityOnHand) AS TotalItemsOnHands
+FROM INVENTORY
+GROUP BY WarehouseID, QuantityOnOrder;

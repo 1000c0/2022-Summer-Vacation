@@ -6,9 +6,7 @@
 
 ## 📝 What  I Learned
 
-  - 
   - 📖 TIL
   - ✏️  assignment_1~3
   - 👜 knapsack
   - <img src = https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/220px-Pokebola-pokeball-png-0.png width = "20" > pokemon_game
-

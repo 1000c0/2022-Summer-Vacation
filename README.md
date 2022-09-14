@@ -1,10 +1,12 @@
 # 2022-Summer-Vacation
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
 
 ## 🗓 2022.7.5 ~ 2022.8.9
 
 
 ## 📝 What  I Learned
-- <img src = https://cdn-icons-png.flaticon.com/512/226/226777.png width = "35" height = "35"> Java 
+
   - 
   - 📖 TIL
   - ✏️  assignment_1~3

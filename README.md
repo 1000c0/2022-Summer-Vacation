@@ -4,7 +4,7 @@
 ## 🗓 2022.7.5 ~ 2022.8.9
 
 
-## 📝 What  I Learned
+## 📝 What I Did
 
   - 📖 TIL
   - ✏️  assignment_1~3
